@@ -1,370 +1,115 @@
 import homeImage from "../../assets/img/img-page-home.jpg";
 
-// =========================
-//  Componente Home
-// =========================
+/* Home */
 function Home() {
+    const cards = [
+        {
+            titulo: "Consumidor",
+            texto: "Compras online, golpes digitais e problemas com serviços do dia a dia.",
+        },
+        {
+            titulo: "Trabalho",
+            texto: "Contratação, rescisão, home office, jornada e direitos trabalhistas.",
+        },
+        {
+            titulo: "Família",
+            texto: "Guarda, pensão, divórcio, acordos e organização da vida familiar.",
+        },
+        {
+            titulo: "Contratos & Finanças",
+            texto: "Financiamentos, contratos, empréstimos e documentos que você assina.",
+        },
+    ];
+
     return (
-        <>
-            {/* =========================================================
-                HEADER (barra superior com título do blog + menu)
-               ========================================================= */}
-            <header
-                style={{
-                    width: "100%",
-                    backgroundColor: "var(--azul-escuro)",
-                    borderBottom: "3px solid var(--azul-vivo)",
-                }}
-            >
-                {/* CONTAINER DO HEADER (centraliza conteúdo na largura máxima) */}
-                <div
-                    style={{
-                        width: "100%",          // ocupa toda a tela
-                        padding: "1.25rem 3rem",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                    }}
-                >
-                    {/* BLOCO ESQUERDO: TÍTULO DO BLOG */}
-                    <div
-                        style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            lineHeight: 1.1,
-                            gap: "0.3rem",
-                        }}
-                    >
-                        {/* NOME DO BLOG */}
-                        <span
-                            style={{
-                                fontWeight: 700,
-                                fontSize: "1.8rem",
-                                color: "var(--offwhite)",
-                            }}
-                        >
-                            Simplificando Direito
-                        </span>
+        <main className="w-full flex flex-col flex-1">
+            <div className="w-full px-7.5 py-7.5 flex flex-col">
+                <section className="w-full flex flex-col gap-2">
 
-                        {/* SUBTÍTULO DO BLOG */}
-                        <span
-                            style={{
-                                fontSize: "1.2rem",
-                                color: "var(--azul-claro)",
-                            }}
-                        >
-                            Blog jurídico em linguagem clara
-                        </span>
-                    </div>
+                    {/* Hero */}
+                    <div className="relative rounded-[1.8rem] overflow-hidden h-[40vh] min-h-[480px] shadow-[var(--sombra-profunda)]">
+                        <img
+                            src={homeImage}
+                            alt="Imagem de capa"
+                            className="absolute inset-0 w-full h-full object-cover"
+                        />
 
-                    {/* BLOCO DIREITO: MENU DE NAVEGAÇÃO */}
-                    <nav
-                        style={{
-                            display: "flex",
-                            gap: "2rem",
-                            fontSize: "1.5rem",
-                            color: "var(--offwhite)",
-                            fontWeight: 500,
-                        }}
-                    >
-                        <span style={{ cursor: "pointer" }}>Início</span>
-                        <span style={{ cursor: "pointer" }}>Sobre</span>
-                        <span style={{ cursor: "pointer" }}>Áreas</span>
-                        <span style={{ cursor: "pointer" }}>Contato</span>
-                    </nav>
-                </div>
-            </header>
+                        <div className="absolute inset-0 bg-[linear-gradient(120deg,#011640fa,#0a2140d9,#0d4373a6)]" />
 
-            {/* =========================================================
-                MAIN (conteúdo principal da página)
-               ========================================================= */}
-            <main
-                style={{
-                    backgroundColor: "var(--azul-bemclaro)",
-                    minHeight: "100vh",
-                }}
-            >
-                {/* CONTAINER GERAL (centraliza todo o conteúdo da Home) */}
-                <section
-                    style={{
-                        width: "100%",
-                        padding: "3rem 3rem 5rem 3rem", // mais espaço
-                    }}
-                >
-                    {/* =====================================================
-                        HERO (imagem grande + texto principal + cards)
-                       ===================================================== */}
-                    <div
-                        style={{
-                            position: "relative",
-                            borderRadius: "1.5rem",
-                            overflow: "hidden",
-                            height: "460px", // altura aumentada
-                            backgroundImage: `
-                                linear-gradient(
-                                    120deg,
-                                    #011640fa,
-                                    #0a2140d9,
-                                    #0d4373a6
-                                ),
-                                url(${homeImage})
-                            `,
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                            boxShadow: "0 28px 80px var(--sombra-profunda)",
-                        }}
-                    >
-                        {/* BLOCO DE TEXTO DO HERO (lado esquerdo) */}
-                        <div
-                            style={{
-                                position: "absolute",
-                                top: "50%",
-                                left: "4rem",
-                                transform: "translateY(-50%)",
-                                maxWidth: "600px", // mais largo
-                                color: "var(--offwhite)",
-                                display: "flex",
-                                flexDirection: "column",
-                                gap: "1.25rem",
-                            }}
-                        >
-                            {/* TÍTULO PRINCIPAL DO HERO */}
-                            <h1
-                                style={{
-                                    fontSize: "2.8rem", // maior
-                                    fontWeight: 700,
-                                    lineHeight: 1.1,
-                                    color: "var(--offwhite)",
-                                }}
-                            >
+                        <div className="absolute top-1/2 left-10 -translate-y-1/2 max-w-[100%] text-[var(--offwhite)] flex flex-col gap-6">
+                            <h1 className="text-[4rem] font-bold leading-[1.1] text-[var(--offwhite)]">
                                 Direito claro, inclusivo e ao seu alcance
                             </h1>
 
-                            {/* TEXTO EXPLICATIVO DO HERO */}
-                            <p
-                                style={{
-                                    fontSize: "1.05rem",
-                                    color: "#E3E5DD",
-                                    lineHeight: 1.7,
-                                }}
-                            >
-                                Conteúdos práticos sobre os principais temas jurídicos do
-                                seu dia a dia e explicados sem juridiquês.
+                            <p className="text-[2rem] text-[#E3E5DD] max-w-[60%] leading-[1.3] text-justify">
+                                Conteúdos práticos sobre os principais temas jurídicos do seu dia a
+                                dia e explicados sem juridiquês.
                             </p>
 
-                            {/* BOTÃO + TEXTO DE APOIO */}
-                            <div
-                                style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    gap: "1rem",
-                                    marginTop: "0.5rem",
-                                }}
-                            >
-                                {/* BOTÃO "VER ARTIGOS" */}
-                                <button
-                                    style={{
-                                        borderRadius: "9999px",
-                                        backgroundColor: "var(--azul-claro)",
-                                        color: "var(--azul-escuro)",
-                                        padding: "0.9rem 2.2rem",
-                                        fontWeight: 700,
-                                        border: "none",
-                                        boxShadow:
-                                            "0 14px 32px #0000001a",
-                                        cursor: "pointer",
-                                        fontSize: "1rem",
-                                        letterSpacing: "0.02em",
-                                    }}
-                                >
+                            <div className="flex items-center gap-4 mt-15">
+                                <button className="rounded-full bg-[var(--azul-claro)] text-[var(--azul-escuro)] py-[1.5rem] px-[2.2rem] text-[1.5rem] font-bold shadow-[0_14px_32px_#0000001a] cursor-pointer text-base tracking-[0.05em] border-0">
                                     Ver artigos
                                 </button>
                             </div>
-                        </div>
+                        </div>                    
 
-                        {/* BLOCO DE CARDS (temas principais) */}
-                        <div
-                            style={{
-                                justifySelf: "center",
-                                position: "absolute",
-                                left: "69%",
-                                bottom: "0.8rem",
-                                transform: "translateX(-50%)",
-                                width: "60%",
-                                maxWidth: "1120px",
-                                display: "grid",
-                                gridTemplateColumns: "repeat(4, 1fr)",
-                                gap: "0.9rem",
-                                backgroundColor: "rgba(255, 255, 255, 0.65)",
-                                borderRadius: "1rem",
-                                boxShadow: "0 14px 35px var(--sombra-media)",
-                                padding: "1.2rem 1.2rem",
-                                border: "3px solid var(--azul-petro)",
-                                textAlign: "justify",
-
-                            }}
-                        >
-                            {[
-                                {
-                                    titulo: "Consumidor",
-                                    texto: "Compras online, golpes digitais e problemas com serviços do dia a dia.",
-                                },
-                                {
-                                    titulo: "Trabalho",
-                                    texto: "Contratação, rescisão, home office, jornada e direitos trabalhistas.",
-                                },
-                                {
-                                    titulo: "Família",
-                                    texto: "Guarda, pensão, divórcio, acordos e organização da vida familiar.",
-                                },
-                                {
-                                    titulo: "Contratos & Finanças",
-                                    texto: "Financiamentos, empréstimos, contratos e documentos que você assina.",
-                                },
-                            ].map((card, index) => (
+                        <div className="absolute right-10 bottom-3 w-[48%] grid grid-cols-4 gap-4 bg-white/50 rounded-[1.8rem] shadow-[var(--sombra-profunda)] p-[1rem] border-[4px] border-[var(--azul-petro)]">
+                            {cards.map((card, index) => (
                                 <div
                                     key={card.titulo}
-                                    style={{
-                                        display: "flex",
-                                        flexDirection: "column",
-                                        gap: "0.4rem",
-                                        padding: "0.45rem 0.4rem",
-                                        borderRight:
-                                            index !== 3
-                                                ? "1px solid var(--azul-claro)"
-                                                : "none",
-                                    }}
+                                    className={`flex flex-col justify-between gap-[0.5rem] py-[0.2rem] px-[0.6rem] ${index !== 3 ? "border-r border-[var(--azul-claro)]" : ""
+                                        }`}
                                 >
-                                    {/* TÍTULO DO CARD */}
-                                    <span
-                                        style={{
-                                            fontSize: "1.2rem",
-                                            fontWeight: 700,
-                                            color: "var(--azul-escuro)",
-                                        }}
-                                    >
-                                        {card.titulo}
-                                    </span>
+                                    <div className="flex flex-col gap-[0.4rem]">
+                                        <span className="text-[2.5rem] font-bold text-[var(--azul-escuro)] leading-tight">
+                                            {card.titulo}
+                                        </span>
 
-                                    {/* DESCRIÇÃO DO CARD */}
-                                    <span
-                                        style={{
-                                            fontSize: "1rem",
-                                            color: "var(--azul-petro)",
-                                            lineHeight: 1.4,
-                                        }}
-                                    >
-                                        {card.texto}
-                                    </span>
+                                        <span className="text-[1.6rem] text-[var(--azul-petro)] leading-[1.3] text-justify">
+                                            {card.texto}
+                                        </span>
+                                    </div>
 
-                                    {/* LINK DO CARD */}
-                                    <span
-                                        style={{
-                                            fontSize: "1rem",
-                                            color: "var(--azul-vivo)",
-                                            cursor: "pointer",
-                                            marginTop: "0.1rem",
-                                        }}
-                                    >
+                                    <span className="text-[1.6rem] text-[var(--azul-vivo)] font-semibold cursor-pointer mt-1">
                                         Ver conteúdos
                                     </span>
                                 </div>
                             ))}
                         </div>
+
                     </div>
 
-                    {/* =====================================================
-                        SEÇÃO INTRODUTÓRIA (texto + caixa “Temas em destaque”)
-                       ===================================================== */}
-                    <section
-                        style={{
-                            marginTop: "3.2rem",
-                            display: "grid",
-                            gridTemplateColumns: "2.1fr 1.6fr",
-                            gap: "2.6rem",
-                            alignItems: "flex-start",
-                        }}
-                    >
-                        {/* COLUNA ESQUERDA: TEXTO INSTITUCIONAL */}
+                    {/* Seção Institucional */}
+                    <section className="mt-[2rem] grid grid-cols-[2.1fr_1.6fr] gap-[2rem] items-start text-justify max-w-[100%]">
                         <div>
-                            {/* TÍTULO DA SEÇÃO */}
-                            <h2
-                                style={{
-                                    fontSize: "1.8rem",
-                                    fontWeight: 700,
-                                    color: "var(--azul-escuro)",
-                                    marginBottom: "1rem",
-                                }}
-                            >
-                                Conteúdo jurídico pensado para o mundo atual
+                            <h2 className="text-[2.8rem] font-bold text-[var(--azul-escuro)] mb-2">
+                                Seu chefe pode olhar seu WhatsApp pessoal?
                             </h2>
 
-                            {/* PARÁGRAFOS EXPLICATIVOS */}
-                            <p
-                                style={{
-                                    fontSize: "1.2rem",
-                                    color: "var(--azul-petro)",
-                                    lineHeight: 1.8,
-                                    marginBottom: "0.9rem",
-                                }}
-                            >
-                                Explicamos o Direito levando em conta os desafios da vida
-                                digital: golpes online, contratos eletrônicos, mudanças no
-                                trabalho e novas formas de consumo e relacionamento.
+                            <p className="text-[2.3rem] text-[var(--azul-petro)] leading-[1.4] mb-[0.9rem]">
+                                Não. Mesmo que o celular esteja conectado ao Wi-Fi da empresa ou seja usado durante o expediente,
+                                mensagens pessoais são privadas. O empregador não pode acessar conversas, fotos ou áudios sem autorização.
+                                Privacidade não acaba no trabalho.
                             </p>
 
-                            <p
-                                style={{
-                                    fontSize: "1.2rem",
-                                    color: "var(--azul-petro)",
-                                    lineHeight: 1.8,
-                                }}
-                            >
-                                Aqui você encontra informações para entender melhor seus
-                                direitos e tomar decisões mais seguras, sempre com linguagem
-                                acessível e foco na prática.
+                            <p className="text-[2.3rem] font-bold text-[var(--azul-petro)] leading-[1.4]">
+                                Quer conhecer outros direitos do dia a dia?
+                            </p>
+                            <p className="text-[2.3rem] text-[var(--azul-petro)] leading-[1.4]">
+                                Aqui explicamos o Direito de forma simples, levando em conta a realidade atual:
+                                golpes na internet, contratos feitos online, mudanças no trabalho e novas formas de consumir e se relacionar.
+                            </p>
+                            <p className="text-[2.3rem] text-[var(--azul-petro)] leading-[1.4]">
+                                Acompanhe o blog e fique informado(a).
                             </p>
                         </div>
 
-                        {/* COLUNA DIREITA: CAIXA "TEMAS EM DESTAQUE" */}
-                        <div
-                            style={{
-                                justifySelf: "center",
-                                backgroundColor: "#FFFFFF",
-                                padding: "1.8rem 1.9rem",
-                                borderRadius: "1rem",
-                                boxShadow: "0 14px 38px var(--sombra-leve)",
-                                display: "flex",
-                                flexDirection: "column",
-                                gap: "1rem",
-                                border: "1px solid var(--azul-claro)",
-                                maxWidth: "60%",
-                            }}
-                        >
-                            {/* TÍTULO DA CAIXA */}
-                            <h3
-                                style={{
-                                    fontSize: "1.8rem",
-                                    fontWeight: 700,
-                                    color: "var(--azul-escuro)",
-                                }}
-                            >
+                        <div className="justify-self-center bg-white py-[2rem] px-[2rem] rounded-[1.8rem] shadow-[0_14px_38px_var(--sombra-leve)] flex flex-col gap-2 border border-[var(--azul-claro)] max-w-[60%]">
+                            <h3 className="text-[2.8rem] font-bold text-[var(--azul-escuro)] text-center">
                                 Temas em destaque
                             </h3>
 
-                            {/* LISTA DE TEMAS */}
-                            <ul
-                                style={{
-                                    listStyle: "none",
-                                    padding: 0,
-                                    margin: 0,
-                                    fontSize: "1.2rem",
-                                    color: "var(--azul-petro)",
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    gap: "0.5rem",
-                                }}
-                            >
+                            <ul className="list-none p-2 m-2 text-[2.3rem] text-[var(--azul-petro)] flex flex-col gap-0">
                                 <li>• Golpes digitais e segurança jurídica.</li>
                                 <li>• O que observar em contratos digitais.</li>
                                 <li>• Direitos no teletrabalho e home office.</li>
@@ -373,8 +118,9 @@ function Home() {
                         </div>
                     </section>
                 </section>
-            </main>
-        </>
+            </div>
+        </main>
+
     );
 }
 
