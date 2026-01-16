@@ -1,4 +1,5 @@
-/* Navbar */
+import { Link } from "react-router-dom";
+
 function Navbar() {
     return (
         <header className="w-full bg-[var(--azul-escuro)] border-b-[6px] border-[var(--azul-vivo)]">
@@ -6,9 +7,11 @@ function Navbar() {
 
                 {/* Bloco ESQUERDO */}
                 <div className="flex flex-col gap-0 leading-snug">
-                    <span className="font-bold text-[2.2rem] md:text-[2.8rem] text-[var(--offwhite)]">
-                        Simplificando Direito
-                    </span>
+                    <Link to="/home">
+                        <span className="font-bold text-[2.2rem] md:text-[2.8rem] text-[var(--offwhite)]">
+                            Simplificando Direito
+                        </span>
+                    </Link>
 
                     <span className="text-[1.4rem] md:text-[2.2rem] text-[var(--azul-claro)]">
                         Entenda seus direitos sem precisar de um dicionário
