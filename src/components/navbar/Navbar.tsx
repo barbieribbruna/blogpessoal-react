@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 function Navbar() {
     return (
         <header className="w-full bg-[var(--azul-escuro)] border-b-[6px] border-[var(--azul-vivo)]">
-            <div className="w-full px-10 py-6 flex items-center justify-between">   {/* container pai */}
+            <div className="w-full px-10 py-6 flex items-center justify-between">
 
-                {/* Bloco ESQUERDO */}
+                {/* BLOCO ESQUERDO */}
                 <div className="flex flex-col gap-0 leading-snug">
                     <Link to="/home">
                         <span className="font-bold text-[2.2rem] md:text-[2.8rem] text-[var(--offwhite)]">
@@ -18,41 +18,66 @@ function Navbar() {
                     </span>
                 </div>
 
-                {/* Bloco DIREITO */}
+                {/* BLOCO DIREITO */}
                 <nav className="flex items-center gap-8 text-[1.6rem] md:text-[2.2rem] text-[var(--offwhite)] font-medium">
 
-                    <button className="cursor-pointer px-2 py-1 rounded hover:text-[var(--azul-claro)] transition-colors">
-                        Publicações
-                    </button>
+                    {/* LINKS DE CONTEÚDO */}
+                    <Link
+                        to="/home"
+                        className="px-2 py-1 rounded hover:text-[var(--azul-claro)] transition-colors"
+                    >
+                        Home
+                    </Link>
 
-                    {/* divisor vertical */}
                     <div className="h-10 border-r border-[var(--azul-claro)] opacity-70" aria-hidden="true" />
 
-                    <button className="cursor-pointer px-2 py-1 rounded hover:text-[var(--azul-claro)] transition-colors">
+                    <Link
+                        to="/postagens"
+                        className="px-2 py-1 rounded hover:text-[var(--azul-claro)] transition-colors"
+                    >
+                        Publicações
+                    </Link>
+
+                    <div className="h-10 border-r border-[var(--azul-claro)] opacity-70" aria-hidden="true" />
+
+                    <Link
+                        to="/temas"
+                        className="px-2 py-1 rounded hover:text-[var(--azul-claro)] transition-colors"
+                    >
                         Temas
-                    </button>
+                    </Link>
 
-                    <div className="h-10 border-r border-[var(--azul-claro)] opacity-70" aria-hidden="true" />    {/* divisor vertical */}
+                    <div className="h-10 border-r border-[var(--azul-claro)] opacity-70" aria-hidden="true" />
 
-                    <button className="cursor-pointer px-2 py-1 rounded hover:text-[var(--azul-claro)] transition-colors">
+                    <Link
+                        to="/cadastro-tema"
+                        className="px-2 py-1 rounded hover:text-[var(--azul-claro)] transition-colors"
+                    >
                         Cadastrar tema
-                    </button>
+                    </Link>
 
-                    <div className="h-10 border-r border-[var(--azul-claro)] opacity-70" aria-hidden="true" />    {/* divisor vertical */}
+                    {/* DIVISOR ENTRE CONTEÚDO E ACESSO */}
+                    <div className="h-10 border-r border-[var(--azul-vivo)] opacity-90" aria-hidden="true" />
 
-                    <button className="cursor-pointer px-2 py-1 rounded hover:text-[var(--azul-claro)] transition-colors">
-                        Perfil
-                    </button>
+                    {/* LINKS DE ACESSO */}
+                    <Link
+                        to="/login"
+                        className="px-2 py-1 rounded hover:text-[var(--azul-claro)] transition-colors"
+                    >
+                        Entrar
+                    </Link>
 
-                    <div className="h-10 border-r border-[var(--azul-claro)] opacity-70" aria-hidden="true" />    {/* divisor vertical */}
+                    <Link
+                        to="/cadastro"
+                        className="px-4 py-2 rounded font-bold bg-[var(--azul-vivo)] text-white hover:opacity-90 transition-opacity"
+                    >
+                        Criar conta
+                    </Link>
 
-                    <button className="cursor-pointer px-2 py-1 rounded hover:text-[var(--azul-claro)] transition-colors">
-                        Sair
-                    </button>
                 </nav>
 
             </div>
-        </header >
+        </header>
     );
 }
 
