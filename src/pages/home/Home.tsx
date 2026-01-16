@@ -1,6 +1,5 @@
 import homeImage from "../../assets/img/img-page-home.jpg";
 
-/* Home */
 function Home() {
     const cards = [
         {
@@ -51,7 +50,7 @@ function Home() {
                                     Ver artigos
                                 </button>
                             </div>
-                        </div>                    
+                        </div>
 
                         <div className="absolute right-10 bottom-3 w-[48%] grid grid-cols-4 gap-4 bg-white/50 rounded-[1.8rem] shadow-[var(--sombra-profunda)] p-[1rem] border-[4px] border-[var(--azul-petro)]">
                             {cards.map((card, index) => (

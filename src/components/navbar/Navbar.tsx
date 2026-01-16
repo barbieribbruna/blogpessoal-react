@@ -25,7 +25,8 @@ function Navbar() {
                         Publicações
                     </button>
 
-                    <div className="h-10 border-r border-[var(--azul-claro)] opacity-70" aria-hidden="true" />    {/* divisor vertical */}
+                    {/* divisor vertical */}
+                    <div className="h-10 border-r border-[var(--azul-claro)] opacity-70" aria-hidden="true" />
 
                     <button className="cursor-pointer px-2 py-1 rounded hover:text-[var(--azul-claro)] transition-colors">
                         Temas
