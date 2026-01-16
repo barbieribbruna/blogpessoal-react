@@ -1,37 +1,31 @@
-import { Route, Routes, Navigate } from "react-router-dom";    // Gerenciamento de rotas
+import { Route, Routes, Navigate, BrowserRouter } from "react-router-dom";    // Gerenciamento de rotas
 
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 
 import Home from "./pages/home/Home";
 import Cadastro from "./pages/cadastro/Cadastro";
+import Login from "./pages/login/Login";
 
 function App() {
     return (
         <div className="min-h-screen flex flex-col">
 
-            {/* NAVBAR - MENU DE NAVEGAÇÃO */}
-            <Navbar />
+            <BrowserRouter>
+                <Navbar />
+                <main className="flex-1">
+                    <Routes>
 
-            {/* CONTEÚDO DINÂMICO */}
-            <main className="flex-1">
-                <Routes>
-                    {/* rota inicial */}
-                    <Route path="/" element={<Home />} />
+                        <Route path="/" element={<Login />} />
+                        <Route path="/home" element={<Home />} />
+                        <Route path="/cadastro" element={<Cadastro />} />
 
-                    {/* home explícito */}
-                    <Route path="/home" element={<Home />} />
-
-                    {/* cadastro */}
-                    <Route path="/cadastro" element={<Cadastro />} />
-
-                    {/* fallback opcional */}
-                    <Route path="*" element={<Navigate to="/" />} />
-                </Routes>
-            </main>
-
-            {/* FOOTER */}
-            <Footer />
+                        {/* fallback opcional */}
+                        <Route path="*" element={<Navigate to="/" />} />
+                    </Routes>
+                </main>
+                <Footer />
+            </BrowserRouter>
 
         </div>
     );
