@@ -75,7 +75,10 @@ function Cadastro() {
 
                 {/* LADO DIREITO - FORM */}
                 <div className="w-full lg:w-[50%] lg:h-[70%] flex items-center justify-center px-2 py-10">
-                    <form className="w-full p-10 lg:p-10 bg-white/60 backdrop-blur-sm rounded-[1.8rem] shadow-sm">
+                    <form
+                        className="w-full p-10 lg:p-10 bg-white/60 backdrop-blur-sm rounded-[1.8rem] shadow-sm"
+                        onSubmit={cadastrarNovoUsuario}
+                    >
                         <header className="flex flex-col gap-2">
                             <h2 className="text-[var(--azul-escuro)] text-[4.8rem] leading-tight">
                                 Cadastrar
@@ -98,7 +101,11 @@ function Cadastro() {
                                 id="nome"
                                 name="nome"
                                 placeholder="Seu nome completo"
-                                className="border-2 border-slate-300 rounded-xl p-5 text-[var(--azul-escuro)] text-[1.8rem] font-medium placeholder:text-slate-400 focus:outline-none focus:border-[var(--azul-vivo)] focus:ring-2 focus:ring-[var(--azul-vivo)]/40"
+                                className="border-2 border-slate-300 rounded-xl p-5 text-[var(--azul-escuro)] text-[1.8rem] font-medium 
+                                                placeholder:text-slate-400 focus:outline-none focus:border-[var(--azul-vivo)] focus:ring-2 focus:ring-[var(--azul-vivo)]/40"
+                                value={usuario.nome}
+                                onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+
                             />
                         </div>
 
@@ -116,6 +123,8 @@ function Cadastro() {
                                 name="usuario"
                                 placeholder="Seu usuário ou e-mail"
                                 className="border-2 border-slate-300 rounded-xl p-5 text-[var(--azul-escuro)] text-[1.8rem] font-medium placeholder:text-slate-400 focus:outline-none focus:border-[var(--azul-vivo)] focus:ring-2 focus:ring-[var(--azul-vivo)]/40"
+                                value={usuario.usuario}
+                                onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                             />
                         </div>
 
@@ -132,7 +141,10 @@ function Cadastro() {
                                 id="foto"
                                 name="foto"
                                 placeholder="Link da sua foto (opcional)"
-                                className="border-2 border-slate-300 rounded-xl p-5 text-[var(--azul-escuro)] text-[1.8rem] font-medium placeholder:text-slate-400 focus:outline-none focus:border-[var(--azul-vivo)] focus:ring-2 focus:ring-[var(--azul-vivo)]/40"
+                                className="border-2 border-slate-300 rounded-xl p-5 text-[var(--azul-escuro)] text-[1.8rem] 
+                                            font-medium placeholder:text-slate-400 focus:outline-none focus:border-[var(--azul-vivo)] focus:ring-2 focus:ring-[var(--azul-vivo)]/40"
+                                value={usuario.foto}
+                                onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                             />
                         </div>
 
@@ -149,7 +161,10 @@ function Cadastro() {
                                 id="senha"
                                 name="senha"
                                 placeholder="Crie uma senha"
-                                className="border-2 border-slate-300 rounded-xl p-5 text-[var(--azul-escuro)] text-[1.8rem] font-medium placeholder:text-slate-400 focus:outline-none focus:border-[var(--azul-vivo)] focus:ring-2 focus:ring-[var(--azul-vivo)]/40"
+                                className="border-2 border-slate-300 rounded-xl p-5 text-[var(--azul-escuro)] text-[1.8rem] 
+                                            font-medium placeholder:text-slate-400 focus:outline-none focus:border-[var(--azul-vivo)] focus:ring-2 focus:ring-[var(--azul-vivo)]/40"
+                                value={usuario.senha}
+                                onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                             />
                         </div>
 
@@ -166,7 +181,10 @@ function Cadastro() {
                                 id="confirmarSenha"
                                 name="confirmarSenha"
                                 placeholder="Repita a senha"
-                                className="border-2 border-slate-300 rounded-xl p-5 text-[var(--azul-escuro)] text-[1.8rem] font-medium placeholder:text-slate-400 focus:outline-none focus:border-[var(--azul-vivo)] focus:ring-2 focus:ring-[var(--azul-vivo)]/40"
+                                className="border-2 border-slate-300 rounded-xl p-5 text-[var(--azul-escuro)] text-[1.8rem] font-medium placeholder:text-slate-400 
+                                            focus:outline-none focus:border-[var(--azul-vivo)] focus:ring-2 focus:ring-[var(--azul-vivo)]/40"
+                                value={confirmarSenha}
+                                onChange={(e: ChangeEvent<HTMLInputElement>) => handleConfirmarSenha(e)}
                             />
                         </div>
 
@@ -175,15 +193,21 @@ function Cadastro() {
                             <button
                                 type="reset"
                                 className="rounded-xl text-white text-[1.8rem] bg-red-500 hover:bg-red-400 w-1/2 py-3 transition-colors cursor-pointer"
+                                onClick={retornar}
                             >
                                 Cancelar
                             </button>
 
                             <button
                                 type="submit"
+                                disabled={isLoading}
                                 className="rounded-xl text-white text-[1.8rem] bg-[var(--azul-vivo)] hover:opacity-70 w-1/2 py-3 flex justify-center transition-opacity cursor-pointer"
                             >
-                                Cadastrar
+                                {isLoading ? (
+                                    <ClipLoader color="#ffffff" size={24} />
+                                ) : (
+                                    <span>Cadastrar</span>
+                                )}
                             </button>
                         </div>
                     </form>
